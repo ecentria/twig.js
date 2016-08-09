@@ -28,7 +28,7 @@ class ImportCompiler implements TypeCompilerInterface
         return 'Twig_Node_Import';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Import) {
             throw new \RuntimeException(
@@ -46,9 +46,7 @@ class ImportCompiler implements TypeCompilerInterface
             ->raw(' = ')
         ;
 
-        if ($node->getNode('expr') instanceof Twig_Node_Expression_Name
-            && '_self' === $node->getNode('expr')->getAttribute('name')
-        ) {
+        if ($node->getNode('expr') instanceof \Twig_Node_Expression_Name && '_self' === $node->getNode('expr')->getAttribute('name')) {
             $compiler->raw("this");
         } else {
             $compiler

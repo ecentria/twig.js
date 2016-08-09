@@ -27,12 +27,12 @@ class SandboxedGoogleCompiler extends GoogleCompiler
         return 'Twig_Node_SandboxedModule';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
-        if (!$node instanceof \Twig_Node_SandboxedModule) {
+        if (!$node instanceof \Twig_Node_CheckSecurity) {
             throw new \RuntimeException(
                 sprintf(
-                    '$node must be an instanceof of \Twig_Node_SandboxedModule, but got "%s".',
+                    '$node must be an instanceof of \Twig_Node_CheckSecurity, but got "%s".',
                     get_class($node)
                 )
             );

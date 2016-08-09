@@ -18,7 +18,6 @@
 
 namespace TwigJs\Compiler\ModuleCompiler;
 
-use Twig_NodeInterface;
 use TwigJs\JsCompiler;
 use TwigJs\Compiler\ModuleCompiler;
 use TwigJs\TypeCompilerInterface;
@@ -27,7 +26,7 @@ class GoogleCompiler extends ModuleCompiler implements TypeCompilerInterface
 {
     private $constantParent;
 
-    protected function compileClassHeader(JsCompiler $compiler, Twig_NodeInterface $node)
+    protected function compileClassHeader(JsCompiler $compiler, \Twig_Node $node)
     {
         $this->functionName = $functionName = $compiler->templateFunctionName
             = $compiler->getFunctionName($node);
@@ -82,7 +81,7 @@ class GoogleCompiler extends ModuleCompiler implements TypeCompilerInterface
         ;
     }
 
-    protected function compileClassFooter(JsCompiler $compiler, Twig_NodeInterface $node)
+    protected function compileClassFooter(JsCompiler $compiler, \Twig_Node $node)
     {
     }
 }

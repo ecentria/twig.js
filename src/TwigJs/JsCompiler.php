@@ -251,7 +251,8 @@ class JsCompiler extends \Twig_Compiler
     /**
      * Returns the function name for the given template name.
      *
-     * @param  \Twig_Node_Module $templateName
+     * @param  \Twig_Node_Module $module
+     *
      * @return string
      */
     final public function getFunctionName(\Twig_Node_Module $module)
@@ -330,7 +331,7 @@ class JsCompiler extends \Twig_Compiler
         return $this;
     }
 
-    public function subcompile(\Twig_NodeInterface $node, $raw = true)
+    public function subcompile(\Twig_Node $node, $raw = true)
     {
         if ($node instanceof \Twig_Profiler_Node_EnterProfile || $node instanceof \Twig_Profiler_Node_LeaveProfile) {
             return $this;

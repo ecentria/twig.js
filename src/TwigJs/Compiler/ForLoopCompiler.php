@@ -12,7 +12,7 @@ class ForLoopCompiler implements TypeCompilerInterface
         return 'Twig_Node_ForLoop';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_ForLoop) {
             throw new \RuntimeException(

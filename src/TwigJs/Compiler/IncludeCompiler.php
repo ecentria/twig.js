@@ -28,7 +28,7 @@ class IncludeCompiler implements TypeCompilerInterface
         return 'Twig_Node_Include';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Include) {
             throw new \RuntimeException(
@@ -50,7 +50,7 @@ class IncludeCompiler implements TypeCompilerInterface
 //         }
 
         $compiler->isTemplateName = true;
-        if ($node->getNode('expr') instanceof Twig_Node_Expression_Constant) {
+        if ($node->getNode('expr') instanceof \Twig_Node_Expression_Constant) {
             $compiler
                 ->write("(new ")
                 ->subcompile($node->getNode('expr'))
