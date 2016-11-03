@@ -57,7 +57,7 @@ abstract class ModuleCompiler
             ->write('return ')
         ;
 
-        if (null === $node->getNode('parent')) {
+        if (!$node->hasNode('parent')) {
             $compiler->repr(false);
         } else {
             $compiler
