@@ -192,6 +192,7 @@ class JsCompiler extends \Twig_Compiler
             'null' => new NullCompiler(),
             'odd' => new OddCompiler(),
             'sameas' => new SameAsCompiler(),
+            'same as' => new SameAsCompiler()
         );
 
         $this->filterCompilers = array();
